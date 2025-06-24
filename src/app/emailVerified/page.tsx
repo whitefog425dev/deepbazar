@@ -35,7 +35,7 @@ export default function EmailVerified() {
     verifiedEmail({ email, id });
   }, [email, id]);
 
-  // AFTER VERIFICATION----------------------------
+  // AFTER VERIFICATION---------------------------- by jch
   useEffect(() => {
     if (verifiedEmailApi.isLoading) return undefined;
     // REDIRECT AFTER 5s IF ERROR
@@ -44,7 +44,7 @@ export default function EmailVerified() {
         router.replace('/');
       }, 50000);
     }
-    // UPDATE USER LOCAL STATE
+    // UPDATE USER LOCAL STATE by Jch
     if (!verifiedEmailApi?.data?.data.user._id) return;
     dispatch(
       showAlert({

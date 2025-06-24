@@ -1,4 +1,8 @@
 import Button from '@/components/common/Button';
+import {
+  CustomFormikInput,
+  InputApiErrorMessage,
+} from '@/components/common/FormikCustomInput';
 import { setCredentials } from '@/redux/features/authSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { useLoginMutation, useRegisterMutation } from '@/redux/services/auth';
@@ -8,10 +12,6 @@ import { useRouter } from 'next/navigation';
 import { FC, useEffect } from 'react';
 import * as Yup from 'yup';
 import { RoleType } from './utils';
-import {
-  CustomFormikInput,
-  InputApiErrorMessage,
-} from '@/components/common/FormikCustomInput';
 
 //------------------------------------------
 interface IProps {
@@ -33,6 +33,7 @@ const initialValues: FormValues = {
   password: '',
 };
 
+//schema to validate 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().min(3).required('FirstName is required'),
   lastName: Yup.string().min(3).required('LastName is required'),
